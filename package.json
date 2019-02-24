@@ -1,6 +1,6 @@
 {
   "name": "hexo-deployer-zeronet",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Deploy your blog to ZeroNet",
   "main": "index.js",
   "scripts": {

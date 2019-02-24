@@ -17,14 +17,15 @@ hexo.extend.deployer.register('zeronet', function (args, callback) {
     }
     else {
         const sitedir = path.join(args.zeronetDir, "data", args.siteAddr)
-        del.sync([path.join(sitedir, "**"),
-        `!${path.join(sitedir, "content.json")}`,
-        `!${path.join(sitedir, "dbschema.json")}`,
-        `!${path.join(sitedir, "data", "**")}`,
-        `!${path.join(sitedir, "data")}`,
-        `!${path.join(sitedir, "data-default")}`,
-        `!${path.join(sitedir, "data-default", "**")}`
-        ], { force: true, dryRun: args.dryRun })
+        console.log(
+            del.sync([path.join(sitedir, "**"),
+            `!${path.join(sitedir, "content.json")}`,
+            `!${path.join(sitedir, "dbschema.json")}`,
+            `!${path.join(sitedir, "data", "**")}`,
+            `!${path.join(sitedir, "data")}`,
+            `!${path.join(sitedir, "data-default")}`,
+            `!${path.join(sitedir, "data-default", "**")}`
+            ], { force: true, dryRun: args.dryRun }))
         ncp(hexo.public_dir, sitedir, err => {
             if (err)
                 console.log(err)
