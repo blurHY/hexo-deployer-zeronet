@@ -2,6 +2,10 @@ const del = require('del');
 const ncp = require('ncp').ncp;
 const path = require("path")
 
+hexo.extend.tag.register("imgr", (args, content) => {
+    return `<img src="${path.join(hexo.config.root, args[0])}"></img>`
+})
+
 hexo.extend.deployer.register('zeronet', function (args, callback) {
     if (!args.siteAddr || !args.zeronetDir) {
         console.log(`
